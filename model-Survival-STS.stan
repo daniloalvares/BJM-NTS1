@@ -20,13 +20,11 @@ model{
 // ------------------------------------------------------
 {
   vector[n] h;
-  // vector[n] mubase;
   vector[n] cumHaz;
 
   for(i in 1:n){
        // Hazard
        h[i] = exp( betaS[1] + betaS[2] * x[i] + alpha * ( betaL[1] + bi0[i] + (betaL[2] + bi1[i]) * Time[i] + betaL[3] * x[i] ) );
-       // mubase[i] = betaL[1] + bi0[i] + betaL[3] * x[i];
 
        // Cumulative hazard H[t] = int_0^t h[u] du
        cumHaz[i] = ( h[i] - exp( betaS[1] + betaS[2] * x[i] + alpha * (betaL[1] + bi0[i] + betaL[3] * x[i]) ) ) / ( alpha * ( betaL[2] + bi1[i] ) ); 
