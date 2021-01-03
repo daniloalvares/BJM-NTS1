@@ -137,7 +137,7 @@ for(i in 1:repetition){
 
   # Stage 2 - Survival submodel
   fitNTS <- stan(file  = "model-Survival-NTS.stan", 
-                data   = list(n=nrow(s.data), bi0=b[,1], bi1=b[,2], betaLmean=betaLmean, nbetaS=2,
+                data   = list(n=nrow(s.data), bi0=b[,1], bi1=b[,2], betaL=betaLmean, nbetaS=2,
                             eta=1.5, Time=s.data$Time, x=s.data$X, death=s.data$status),          
                 warmup = 500,                 
                 iter   = 1000,                
